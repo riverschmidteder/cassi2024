@@ -1,0 +1,39 @@
+from pandas import Series, DataFrame
+from astropy.table import Table
+import numpy as np
+from copy import copy
+import multiprocessing as mp
+import subprocess
+
+from astropy.io import fits,ascii
+from astropy.wcs import WCS
+from astropy.coordinates import SkyCoord
+from astropy.time import Time
+from astropy.nddata import Cutout2D
+import astropy.units as u
+
+from vars import *
+
+def apply_big(obj, fi, row, run):
+    
+    id_dir = pdata_path + '/galfit/{}'.format(obj)
+    run_dir = id_dir + '/{}'.format(run)
+
+    # Open currently active runfile
+    run_file = run_dir + '/{}.{}.run.galfit'.format(row.Index, run)
+
+    with open(run_file) as f:
+        config_lines = f.readlines()
+
+    sci_file = './stamps/{}_{}_sci.fits'.format(row.Index, fi)
+    bpm_file = './stamps/{}_{}_bpm.fits'.format(row.Index, fi)
+    sig_file = './stamps/{}_{}_sig.fits'.format(row.Index, fi) #'none'
+
+    nsci_file = './stamps/{}_{}_sci.5as.fits'.format(row.Index, fi)
+    nbpm_file = './stamps/{}_{}_bpm.5as.fits'.format(row.Index, fi)
+    nsig_file = './stamps/{}_{}_sig.5as.fits'.format(row.Index, fi) #'none'
+    
+    
+    config_lines = [subs.replace(sci_file,nsci_file) for subs in config_lines]
+    config_lines = [subs.replace(bpm_file,nbpm_file) for subs in config_lines]
+    config_lines = [subs.replace(sig_file,nsig_file) for subs in config_lines]
