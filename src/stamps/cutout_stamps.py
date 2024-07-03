@@ -280,7 +280,7 @@ def invert_sqrt_fits(arr_in,arr_out):
 #res_path is from vars and contains the base directory where the file in question is located.
 
 #This pickled Pandas data frame is then assigned to pcrs
-pcrs = pd.read_pickle('/Users/rschmidt-eder/cassi2024/data/jc_xi_ion_prop.pkl')
+pcrs = pd.read_pickle('{}/jc_xi_ion_prop.pkl'.format(data_path))
 
 pcrs = pcrs.loc[pcrs.index.str.contains('JADES')]
 
