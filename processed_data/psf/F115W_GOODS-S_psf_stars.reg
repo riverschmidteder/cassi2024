@@ -1,0 +1,17 @@
+# Region file format: DS9 version 4.1
+        global color=green dashlist=8 3 width=3 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+        fk5
+        circle(53.14626078334855,-27.812362368758688,1.0") # width=3 text={13} 
+circle(53.16287890854322,-27.767237818278602,1.0") # width=3 text={9} 
+circle(53.13314968102149,-27.75878104095264,1.0") # width=3 text={10} 
+circle(53.170263961251045,-27.856283256552764,1.0") # width=3 text={5} 
+circle(53.157801955622276,-27.852835444070593,1.0") # width=3 text={6} 
+circle(53.12072758478416,-27.78242891368894,1.0") # width=3 text={1} 
+circle(53.104859729313766,-27.825975940410864,1.0") # width=3 text={0} 
+circle(53.11558108945183,-27.82329156629289,1.0") # width=3 text={12} 
+circle(53.14796085748224,-27.823978949457423,1.0") # width=3 text={7} 
+circle(53.08143302005396,-27.842028967853835,1.0") # width=3 text={4} 
+circle(53.17815390218139,-27.769263256682287,1.0") # width=3 text={8} 
+circle(53.07585335729722,-27.79632694304113,1.0") # width=3 text={3} 
+circle(53.102899524368105,-27.847855093608647,1.0") # width=3 text={11} 
+circle(53.15028204456914,-27.752333062231653,1.0") # width=3 text={2} 
