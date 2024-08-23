@@ -1,0 +1,1 @@
+Hi Tony, thanks for a great summer. You were a great mentor :) If you'd like to see what I said in the DEI presentation it should be in the speakernotes. Wishing you well from MT and MN.

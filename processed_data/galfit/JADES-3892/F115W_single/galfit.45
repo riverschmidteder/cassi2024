@@ -1,0 +1,118 @@
+
+#  Input menu file: JADES-3892.F115W_single.run.galfit
+
+#  Chi^2/nu = 0.811,  Chi^2 = 7758.644,  Ndof = 9562
+
+================================================================================
+# IMAGE and GALFIT CONTROL PARAMETERS
+A) ./stamps/JADES-3892_F115W_sci.2as.fits      # Input data image (FITS file)
+B) ./JADES-3892.F115W_single.fit.fits      # Output data image block
+C) ./stamps/JADES-3892_F115W_sig.2as.fits      # Sigma image name (made from data if blank or "none") 
+D) ./JADES-3892.F115W_single.psf.fits          # Input PSF image and (optional) diffusion kernel
+E) 1                   # PSF fine sampling factor relative to data 
+F) none                # Bad pixel mask (FITS image or ASCII coord list)
+G) galfit.constraints      # File with parameter constraints (ASCII file) 
+H) 1    98   1    98   # Image region to fit (xmin xmax ymin ymax)
+I) 100    100          # Size of the convolution box (x y)
+J) 28.0000             # Magnitude photometric zeropoint 
+K) 0.0200  0.0200      # Plate scale (dx dy)   [arcsec per pixel]
+O) regular             # Display type (regular, curses, both)
+P) 0                   # Choose: 0=optimize, 1=model, 2=imgblock, 3=subcomps
+
+# INITIAL FITTING PARAMETERS
+#
+#   For component type, the allowed functions are: 
+#       sersic, expdisk, edgedisk, devauc, king, nuker, psf, 
+#       gaussian, moffat, ferrer, and sky. 
+#  
+#   Hidden parameters will only appear when they're specified:
+#       Bn (n=integer, Bending Modes).
+#       C0 (diskyness/boxyness), 
+#       Fn (n=integer, Azimuthal Fourier Modes).
+#       R0-R10 (coordinate rotation, for creating spiral structures).
+#       To, Ti, T0-T10 (truncation function).
+# 
+# ------------------------------------------------------------------------------
+#   par)    par value(s)    fit toggle(s)    # parameter description 
+# ------------------------------------------------------------------------------
+
+# Component number: 1
+ 0) sersic                 #  Component type
+ 1) 48.3982  51.1780  1 1  #  Position x, y
+ 3) 24.5100     1          #  Integrated magnitude 
+ 4) 2.3733      1          #  R_e (effective radius)   [pix]
+ 5) 0.6321      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.4422      1          #  Axis ratio (b/a)  
+10) 71.3169     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 2
+ 0) sersic                 #  Component type
+ 1) 57.2336  43.2342  1 1  #  Position x, y
+ 3) 25.4202     1          #  Integrated magnitude 
+ 4) 2.6852      1          #  R_e (effective radius)   [pix]
+ 5) 1.6894      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.6389      1          #  Axis ratio (b/a)  
+10) 68.2061     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 3
+ 0) sersic                 #  Component type
+ 1) 53.0245  47.9820  1 1  #  Position x, y
+ 3) 23.9495     1          #  Integrated magnitude 
+ 4) 64.2077     1          #  R_e (effective radius)   [pix]
+ 5) 3.0834      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.4355      1          #  Axis ratio (b/a)  
+10) 77.3455     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 4
+ 0) sersic                 #  Component type
+ 1) 60.5535  48.6212  1 1  #  Position x, y
+ 3) 27.6116     1          #  Integrated magnitude 
+ 4) 6.8131      1          #  R_e (effective radius)   [pix]
+ 5) 0.0379      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.1273      1          #  Axis ratio (b/a)  
+10) 19.0766     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 5
+ 0) sersic                 #  Component type
+ 1) 61.3622  43.4528  1 1  #  Position x, y
+ 3) 26.8929     1          #  Integrated magnitude 
+ 4) 4.4944      1          #  R_e (effective radius)   [pix]
+ 5) 0.6178      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.3424      1          #  Axis ratio (b/a)  
+10) -44.1364    1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+# Component number: 6
+ 0) sersic                 #  Component type
+ 1) 52.4157  54.0444  1 1  #  Position x, y
+ 3) 25.8252     1          #  Integrated magnitude 
+ 4) 7.5664      1          #  R_e (effective radius)   [pix]
+ 5) 0.2706      1          #  Sersic index n (de Vaucouleurs n=4) 
+ 6) 0.0000      0          #     ----- 
+ 7) 0.0000      0          #     ----- 
+ 8) 0.0000      0          #     ----- 
+ 9) 0.2809      1          #  Axis ratio (b/a)  
+10) 74.9481     1          #  Position angle (PA) [deg: Up=0, Left=90]
+ Z) 0                      #  Skip this model in output image?  (yes=1, no=0)
+
+================================================================================
+

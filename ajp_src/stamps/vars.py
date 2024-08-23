@@ -1,8 +1,8 @@
 
 
-data_path = '/home/tonypahl/jwst_ceers_size/data'
-pdata_path = '/home/tonypahl/jwst_ceers_size/processed_data'
-res_path = '/home/tonypahl/jwst_ceers_size/results'
+data_path = '/home/rschmidt-eder/cassi2024/data/GOODS-S_mosaic'
+pdata_path = '/home/rschmidt-eder/cassi2024/processed_data'
+res_path = '/home/rschmidt-eder/cassi2024/results'
 
 
 filters = [

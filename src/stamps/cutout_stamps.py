@@ -331,7 +331,7 @@ for fi in wht_dir:
         wht_header_dir[fi][field] = header
         wht_wcs_dir[fi][field] = wcs
 #Commented out for now. This is for segment images.
-"""
+
 # Read in all segmentation images
 seg_img_dir = copy.deepcopy(seg_dir)
 seg_header_dir = copy.deepcopy(seg_dir)
@@ -344,7 +344,7 @@ for field in seg_dir:
     seg_img_dir[field] = img
     seg_header_dir[field] = header
     seg_wcs_dir[field] = wcs
-"""
+
 # Determine image membership
 
 #Figures out the field each object lives in. It makes a sky coordinate for that object and sees if that sky coordinate is in the image. If it is then it puts that into a new column in the Pandas dataframe and it calls up field_filter. The value would be an actual field where the object lays in.
@@ -393,11 +393,11 @@ for row in pcrs.itertuples():
             os.mkdir(workdir)
         
         # Define size of all stamps
-        st_size = 5.0 * u.arcsec #arcsec
+        st_size = 2.0 * u.arcsec #arcsec
         px_size = st_size  / pxsc_dir[fi][field]
         
         # Science
-        sci_stamp_file = '{}/{}_{}_sci.5as.fits'.format(workdir, row.Index, fi)
+        sci_stamp_file = '{}/{}_{}_sci.2as.fits'.format(workdir, row.Index, fi)
         cutout_sci = Cutout2D(
             sci_img_dir[fi][field],
             coord,
@@ -413,7 +413,7 @@ for row in pcrs.itertuples():
         hdu_sci.writeto(sci_stamp_file, overwrite=True)
 
         # Weight
-        wht_stamp_file = '{}/{}_{}_wht.5as.fits'.format(workdir, row.Index, fi)
+        wht_stamp_file = '{}/{}_{}_wht.2as.fits'.format(workdir, row.Index, fi)
         cutout_wht = Cutout2D(
             wht_img_dir[fi][field],
             cutout_sci.position_original,
@@ -427,7 +427,7 @@ for row in pcrs.itertuples():
         hdu_wht.writeto(wht_stamp_file, overwrite=True)
 
         # Sigma
-        sig_stamp_file = '{}/{}_{}_sig.5as.fits'.format(workdir, row.Index, fi)
+        sig_stamp_file = '{}/{}_{}_sig.2as.fits'.format(workdir, row.Index, fi)
         invert_sqrt_fits(wht_stamp_file, sig_stamp_file)
 
         # Segmentation map
@@ -436,12 +436,13 @@ for row in pcrs.itertuples():
             segfield = 'AEGIS'
         else:
             segfield = field            
-        seg_stamp_file = '{}/{}_{}_seg.5as.fits'.format(workdir, row.Index, fi)
+        seg_stamp_file = '{}/{}_{}_seg.2as.fits'.format(workdir, row.Index, fi)
         # Create segmap by checking where each pixel lies in seg image (works for different
         # pixel scales)
         x2D, y2D = np.meshgrid(np.arange(cutout_sci.shape[0]), np.arange(cutout_sci.shape[1]))
         xys = np.column_stack((y2D.ravel(), x2D.ravel()))
         coords = cutout_sci.wcs.pixel_to_world(xys[:,0], xys[:,1])
+
         ixs = seg_wcs_dir[segfield].world_to_array_index(coords)
         seg_data = seg_img_dir[segfield][ixs[0], ixs[1]].reshape(cutout_sci.data.shape).T
         hdu_seg = fits.PrimaryHDU()
@@ -451,7 +452,7 @@ for row in pcrs.itertuples():
         hdu_seg.writeto(seg_stamp_file, overwrite=True)
 
         # Bad pixel map
-        bpm_stamp_file = '{}/{}_{}_bpm.5as.fits'.format(workdir, row.Index, fi)
+        bpm_stamp_file = '{}/{}_{}_bpm.2as.fits'.format(workdir, row.Index, fi)
         # Create bpm by replacing central value by 0
         cen_val = seg_data[int(seg_data.shape[0]/2), int(seg_data.shape[0]/2)]
         bpm_data = copy.copy(seg_data)

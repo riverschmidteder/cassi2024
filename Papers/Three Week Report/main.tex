@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{amsmath} % Required for the equation formatting
+\usepackage{graphicx} % Required for inserting images
+\usepackage{natbib}
+
+\title{Does Galaxy Effective Radius Effect Ionizing Photon Production?}
+\author{River Schmidt-Eder \& Tony Pahl}
+\date{July 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Reionization refers to when the neutral hydrogen between galaxies becomes ionized by radiation. This reionization was driven by early star-forming galaxies. In nuclear fusion and subsequent blackbody radiation ionizing light is produced capable of separating electrons from nuclei in hydrogen atoms in the intergalactic medium, effectively "re-ionizing" them. According to \cite{2006ARA&A..44..415F} astronomers know that reionization ends at \(z = 6\) due to Gunn-Peterson (GP) absorption, or the absorption of light from distant quasars by neutral hydrogen in the intergalactic medium (IGM). The difficulty for astronomers is determining the timeline of reionization. Determining this timeline is difficult because the neutral intergalactic medium absorbed the first ionizing photons from the early galaxies whose photons were responsible for reionization. \cite{2015ApJ...802L..19R} provided new constraints on the epoch of cosmic reionization, suggesting that the majority of ionizing photons responsible for reionization came from high-redshift star-forming galaxies.
+
+There are three parameters that help us to calculate the total number of ionizing photons from star-forming galaxies entering the IGM as a function of time. This quantity is known as ionizing emissivity and is equal to \(f_{\text{esc}}\), \(\xi_{\text{ion}}\), and \(\rho_{\text{SFR}}\). \( f_{\text{esc}} \) refers to the fraction of ionizing photons escaping a given galaxy, \(\xi_{\text{ion}}\) refers to the ionizing photon production efficiency of that galaxy, and \(\rho_{\text{SFR}}\) refers to the cosmic star-formation rate density of that galaxy.
+
+
+Compact galaxies are relevant to Reionization because compact galaxies are thought to have high escape fractions \cite{2022ApJS..260....1F}. This high escape fraction means a large percentage of the ionizing light that they produce can escape into the IGM. Considering the high escape fractions of these galaxies and their potential importance for driving reionization, the main aim of our research will be to understand whether galaxies with smaller effective radii also have larger ionizing photon production efficiencies.
+
+\section{Discussion}
+
+\subsection{Motivations}
+
+Part of our motivation for this project stems from the desire to utilize the high-quality data enabled by the James Webb Space Telescope (JWST). JWST has allowed ionizing photon production efficiencies to be better measured at higher redshift thanks to the redder wavelength coverage of JWST. The sizes of these galaxies are also better constrained with the superior spatial resolution of the telescope. This makes it an ideal time to study how ionizing photon production efficiencies and high redshift galaxy sizes may be correlated. We are also motivated to study these galaxies that produce ionizing photons since Reionization takes place as the last phase transition of the universe's history, which is interesting from a perspective of cosmic evolution. As hydrogen in the intergalactic medium of the universe was ionized, Reionization decreased the amount of fuel available for forming stars. Therefore, Reionization helps us better understand cosmic evolution by helping us to better acknowledge how the fuel for star-formation in and around galaxies changed in the early universe.
+
+\subsection{Questions}
+
+\begin{itemize}
+    \item 
+    According to research such as Fan et al. \cite{2006ARA&A..44..415F} Reionization could have began as early as \(Z = 14\), with it ending at around \(Z = 6\). Nevertheless we are still yet to know the precise timeline of reionization. One of the goals of this project is to determine what drives reionization.
+    \item What types of galaxies influence reionization?
+    \item Observations indicate that compact galaxies have high escape fractions, but do they have elevated production efficiencies?
+\end{itemize}
+
+\section{Current Progress}
+So far we've set up and spent time learning about Galfit, a program used to fit synthetic 2D light profiles from cut outs of galaxies. These synthetic 2D light profiles ultimately allow us to more accurately measure the sizes of galaxies through their effective radii.
+
+In addition to this, we have discussed the significance of scientific, weighted, and sigma images in the context of our work with Galfit. Scientific images refer to raw images from the telescope, which serve as the primary data for our analysis. Weight images provide crucial information about the confidence level of the data taken, influencing how much weight each pixel is given during the fitting process. Sigma images, which are the inverse of the square root of the weight images, describe the confidence level of the data on a pixel-by-pixel basis. These sigma images are particularly important in Galfit, as they allow the program to accurately assess the uncertainty in each pixel, leading to more precise measurements of galaxy sizes and better fitting of the synthetic light profiles.
+
+We have also spent time setting up and discussing the various scripts relevant to gathering the data for the production of ionizing photons. This includes \text{stamps\_cutout.py} and its accompanying variables in \text{vars.py}. These scripts are crucial for preparing the data for Galfit, as they help to cut out stamps of the specific high redshift galaxies we plan to examine.
+
+We have also created a Github repository that holds the scripts for our research, including those used to run Galfit. It also holds the mosaics of the galaxies we plan to use, a directory for our processed data, and a directory for our results. By using GitHub, we can seamlessly share data and collaborate more effectively. This setup not only streamlines our workflow with Galfit but also promotes learning about project management and coding practices in real-world research. Organizing our scripts and data in this way ensures that our use of Galfit is efficient and reproducible, allowing for more robust and transparent scientific outcomes.
+
+We have also found the mosaic whose galaxies we will analyze using Galfit. We will be using GOODS-S data that corresponds to far away galaxies, well-studied by the astronomical community. We also spent time learning about DS9, it's extensive tools and functions, and how we can use it to observe this mosaic from which we will eventually determine galaxy sizes.
+
+Understanding Point Spread Functions (PSFs) has also been a topic of our research as they are responsible for spreading out and changing the shape of the light as it appears in our data. We've learned how different lenses provide different PSFs, and the role that PSFs play in Galfit in determining the sizes of the galaxies that we feed it.
+
+We are currently not having many difficulties besides those that are learning-curve related. There has been a lot of time spent on learning about the physics behind the research and the various tools used for it such as DS9, SExtractor, and Galfit. As well as learning the complexities behind many of the accompanying packages that this research uses such as astropy, numpy, pandas, etc. Expected difficulties in the future may include redshifts changing parts of the spectrum we actually intend to measure. An anticipated solution will be changing the filter we use for measuring the light of the high red shift galaxy at hand. There may also be galaxies with complicated morphology. A single Sersic profile may not be able to properly fit models to galaxies such as this and we might have to use multiple Sersic profiles for one galaxy.
+
+
+\bibliographystyle{aasjournal} % Choose an appropriate style
+\bibliography{export-bibtex} % This should be the name of your .bib file without the extension
+
+\end{document}

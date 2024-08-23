@@ -39,9 +39,11 @@ wht_dir = {
 
 #Once the segmentation image is made we'll put it here. That's what the source extractor makes.
 seg_dir = {
-    'CEERS-NE': '{}/CEERS-NE/ceers-ne-grizli-v4.0-ir_seg.fits'.format(data_path),
-    'CEERS-SW': '{}/CEERS-SW/ceers-sw-grizli-v4.0-ir_seg.fits'.format(data_path),
-    'AEGIS': '{}/AEGIS/gbrammer/egs-100mas-f160w_drz_seg.fits'.format(data_path),
+    #We aren't using this as far as I know so I commented it out to avoid issues since I was getting errors.
+    #'CEERS-NE': '{}/CEERS-NE/ceers-ne-grizli-v4.0-ir_seg.fits'.format(data_path),
+    #'CEERS-SW': '{}/CEERS-SW/ceers-sw-grizli-v4.0-ir_seg.fits'.format(data_path),
+    #'AEGIS': '{}/AEGIS/gbrammer/egs-100mas-f160w_drz_seg.fits'.format(data_path),
+    'GOODS-S': '{}/GOODS-S_mosaic/GOODS-S_F115W_Segmentations.fits'.format(data_path),
 
     #'F115W': {
     #    'CEERS-NE': '{}/CEERS-NE/ceers-ne-grizli-v4.0-ir_seg.fits'.format(data_path),
